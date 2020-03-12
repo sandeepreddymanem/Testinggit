@@ -1,0 +1,73 @@
+Understand the requirement and understand the functionality and Build-->Create the sudo code and flow chart and gater attributes before start coding the start coding.
+Get data and split the data by using 0015 to get customer and contract the prefix 0015 to contracts to get contract referenceand then trim the data.CACS have spaces which broke my code.
+Converting the text to capital letters and small letters like cleansing the data.-using actions
+Eleminating the special charcters and taking off spaces and unwanted charcters
+Implicit wait- Its applicable Globally-It will apply for each and every actions on script. -driver.manage().timeout().implicitwait(5,TimeUnit.Seconds);
+Explicit Wait -its for targeted elements -Applicable to specific attribute and its not globbaly applicable
+-WebdriverWait w=new WebdriverWait(driver,5);
+w.untill(expectedconditions.elementclickable)
+                           .visibiltyofelementlocated()
+Fluent Wait -It monitors for element at regular intervals of time where as explicit wait it will keep on continously listening/monitoring the DOM for element.
+
+Explicit wait-10 Seconds(it will continously check dom for 10 seconds)-Always used explicit wait in realtime-(example-Promocode/datafetching)
+Fluent Wait-10,2 seconds(it will check dom for every 2 seconds)-(example-after made payemnt for transaction the webpage shows like first 5 seconds(yourcard is accepted),second 5 seconds(your order is being processes),thirs 5 seconds(get confirmation)
+
+Fluentwait and webdriverwait both are classess which are implementing WAIT interface. Like chrome driver implements webdriver interface
+
+Wait<Webdriver> w1= new Fluentwait<Webdriver>(driver).withTimeout(Duration.ofseconds(30)).pollingevery(Duration.ofseconds(3).ignore(exceptions)
+to give for what to wait -need to write our own function for this fluent wait using google.
+
+
+Actions
+-Keyboard and Mouse interactions
+Mouseover-moveto specific element
+Actions a=new Actions(driver)
+a.movetoElement(webelement locator).build().perform();
+
+Select text box and write in caps.moving+clicking+pressing shift+tying hello+build+perform the action
+a.movetoElement(webelement locatot).click().keyDown(keys.Shift).sendkeys("hello").build().perform();
+
+to double click-using doubleclick
+a.movetoElement(webelement locatot).click().keyDown(keys.Shift).sendkeys("hello").doubleclick().build().perform()
+
+to right click from mouse on element-using contextclick
+a.movetoElement(webelement locatot).contextclick().build().perform()
+
+
+Child windows/tab handling-Multiple windows/tab handling
+driver.gettitle-always selenium stays in parent window which it started and not on the new window which openeined after action
+first get url-to get current url
+getwindowshandles-give you all window id's --Set<Strings> ids=driver.getwindowhandles()
+Iterator<String> it=ids.iterator()
+String parentid=it.next();
+String Childid=it.next();
+driver.gettitle;//parentwindow
+driver.switchto().window(childid);
+driver.gettitle;//childwindow
+driver.switchto().window(parentid);
+driver.gettitle;//parentwindow
+
+
+Frames
+-frames are saperate containers on the webpage and it not part of webpage.Identify based on inspection as frame instead of window
+confirm by inspectiong or by from html code.--iframe(thats the frame)
+driver.switchto.frame(int)--if we know index  --driver.swichto().frame(0)//since i have one frame on webpage
+							-To know all the iframes first-driver.findelements(tagname.iframes).size()--if developer add onemore then index changes so not recommended by we can use by giving index
+driver.switchto.frame(string)--if we know frameid --if we get frame id
+driver.switchto.frame(webelement)--if we know webelement --example driver.findelement(By.cssselector(tagname.classname(iframe.demo-frame));
+
+To come back to webpage from frame to doa nay other actions--defaultcontent().
+driver.switchTo().defaultcontent();
+
+to Drag and Drop-actions draganddrop(source,target)
+Actions a=new Actions(driver)
+-->webelement source=driver.findelement(locatorof source)
+-->webelement target=driver.findelement(locatorof target)
+a.draganddrop(source,target).build().perform()
+
+To come back to webpage from frame to doa nay other actions--defaultcontent().
+driver.switchTo().defaultcontent();
+
+
+
+
