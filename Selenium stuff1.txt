@@ -1,0 +1,67 @@
+Enter the letters BENG--Verify the airport option is displayed in suggestive box
+Autosuggestive drop down-->Find the element>click on the element>type'BANG'>keyboard down arrow
+We cant get the selected textc024015
+Hidden class-we cant extract using gettext -Disadvantages of selenium is it cant identify all the hidden elements/Ajax implemnetation elements
+How to identify there are hidden elements-Investigate the properties of an object if it has any hidden text
+with the help of java script we can extract the hidden elements-using javascript HTML DOM API(Document object model)
+How can we shift the language from java to java script as we are working with java and selenium
+the solution is to use javascript executor method in selenium java we can  able to write java script DOM steps as well
+to execute first intialise the javascript executor as below
+
+JavascriptExecutor js=(JavascriptExecutor)driver;// created js object same as driveer object
+document.getElementById("Locator").value// to get the value of hidden text in the javascript// same as gettext in java but it cant find and get value but javascript can be able to get that value
+double quotes inside double quotes use \(forward slash)
+to get the output in java script need to use return as below
+String script="return document.getElementById(\"Locator\").value"
+js.executorscript(script)// to execute the java script script
+String text = (String) js.executorscript(script); //(String)-Adding Cast to string
+i=10;//Maximum autosuggestive list is 10
+while(!text.equalIgnoreCase("AIRPORT"){
+sendkeys.KEYDOWN
+text = (String) js.executorscript(script);
+if(i>10){
+break;
+}
+}
+if (i>10)
+{sout("We havenot got Airport")}
+else
+{sout("We got Airport")}
+
+///Handling SSL Cerification///Proceed anyway clicking or click advanced then click proceed
+
+DesiredCapabilities c=DesiredCapabilities.chrome()         //Changing properties in chrome
+ch.acceptInsecurecerts()  //allowing insecure cerficications
+ch.setcapability(capabilitytype.Acceptinsecurecerts,true) //one more option to handle and have bunch of options to explore
+ch.setcapability(capabilitytype.SSLcertify,true) //one more option to handle and have bunch of options to explore
+We need to use the class chromeoptions in selenium --we can customise chrome browser options with this option 
+ChromeOptions c= new ChromeOptions();
+c.merge(ch);        //merging the properties to the local chrome browser
+Syste.setproperty("webdrive.chrome.driver","Path");
+Webdriver driver = new ChromeDriver(c);  // now this driver use the properties which have in object ch  as we merged in c we are using c here
+driver.get(URL);
+
+//Maximise the browser and delete the cookies in browser
+driver.manage().window.maximise// for maximise the window
+driver.manage().deleteallcookies  // to delete all the cookies
+driver.manage().deletecookienamed("cookiename" // to delete one specific cookie with known cookie name
+//If we delete the session id cookie your script should get logout(Scenario they want to delete session cookie and make sure secure login gets logouts and navites to home page)
+So for this we are going to delete the specifi session cookie using 
+driver.manage().deletecookienamed("cookiename of sessionid" 
+then click on any link and verify your get title same as home
+
+
+//Taking screenshots and kill the process in background
+
+
+
+
+
+
+
+
+
+
+
+
+
