@@ -52,6 +52,15 @@ then click on any link and verify your get title same as home
 
 
 //Taking screenshots and kill the process in background
+convert the webdriver object into screenshot object-change the object behaviour to screenshot object by CASTING DRIVER TO TAKESCREENSHOT METHOD OBJECT
+
+File srceen = ((TakesScreenshot)driver).getScreenshotas(OutputType.FILE);  //to take screenshot
+FileUtils.copyFile(srceen,new File("C://screenshot.png")); //copying file to local machine //we can download from apache commons io // aways check you have access to C to save else change that to D
+
+
+
+
+
 
 
 
